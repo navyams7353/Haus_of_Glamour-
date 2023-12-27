@@ -1,0 +1,55 @@
+{% extends 'userindex.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table{
+            width: 1000px;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div style="padding-left:450px ;">
+    <table class="table" >
+        <div>
+        <tr>
+           <th>Services</th> 
+           <th>Price</th>
+           <th>Date</th>
+           <th>Time</th>
+           <th>Status</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i.Service_id.Service_Name}}</td>
+            <td>{{i.Service_id.Price}}</td>
+            <td>{{i.Date}}</td>
+            <td>{{i.Time}}</td>
+            {% if i.Status == 0 %}
+            <td>
+                <p>Waiting for confirmation</p>
+            </td>
+            {% elif i.Status == 1 %}
+            <td>
+                <p>Approved</p>
+            </td>
+            {% else %}
+            <td>
+                <p>Declined</p>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </div>
+    </table>
+
+</div>
+</body>
+
+</html>
+{% endblock %}

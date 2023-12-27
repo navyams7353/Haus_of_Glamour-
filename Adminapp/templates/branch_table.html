@@ -1,0 +1,42 @@
+
+{% extends 'index.html' %}
+{% block contents %}
+<div class="clearfix">
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row mt-3">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Branch_database</h5>
+			  <div class="table-responsive">
+               <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Branch Name</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Delete</th>
+                  </thead>
+                  {% for i in data %}
+                  <tbody>
+                    <tr>
+                    <td>{{i.Branch_Name}}</td>
+                    <td><img src="{{i.Img.url}}" style="width: 65px; height: 65px;" ></td>
+                    <td>{{i.Location}}</td>
+                    <td><a href="{% url 'delete_branch'  id=i.id  %}"><button>Delete</button></a></td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+               </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

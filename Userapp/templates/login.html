@@ -1,0 +1,31 @@
+{% extends 'userindex.html' %}
+{% block contents %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">Login Form</div>
+           <hr>
+            <form action="{% url 'log' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">User Name</label>
+            <input type="text" class="form-control" id="input-1" name="username" placeholder="User Name">
+           </div>
+           <div class="form-group">
+            <label for="input-3">Password</label>
+            <input type="password" class="form-control" id="input-3" name="password" placeholder="Password">
+           </div>
+            <a href="{% url 'log' %}"><button type="submit" class="btn btn-light px-5"> LOGIN</button></a>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+      {{msg}}
+{% endblock %}

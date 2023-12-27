@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block contents %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">Add Categories</div>
+           <hr>
+            <form action="{% url 'form' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">Category Name</label>
+            <input type="text" class="form-control" id="input-1" name="name" placeholder="Category name">
+           </div>
+           <div class="form-group">
+            <label for="input-2">Image</label>
+            <input type="file" name="image" class="form-control" id="input-2" placeholder="Upload Image">
+           </div>
+           <div class="form-group">
+            <label for="input-3">Description</label>
+            <input type="text" class="form-control" id="input-3" name="description" placeholder="Description">
+           </div>
+            <button type="submit" class="btn btn-light px-5"> Submit</button>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+{% endblock %}

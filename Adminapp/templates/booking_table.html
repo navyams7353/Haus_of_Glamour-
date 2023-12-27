@@ -1,0 +1,53 @@
+
+{% extends 'index.html' %}
+{% block contents %}
+<div class="clearfix">
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row mt-3">
+        <div class="col-lg-6" >
+          <div class="card" style="width: 1300px;">
+            <div class="card-body" >
+              <h5 class="card-title">Appoinments</h5>
+			  <div class="table-responsive">
+               <table class="table" >
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Services</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Delete</th>
+                      <th scope="col">Confirm</th>
+                  </thead>
+                  {% for i in data %}
+                  <tbody>
+                    <tr>
+                    <td>{{i.User_id.User_Name}}</td>
+                    <td>{{i.User_id.Phone_Number}}</td>
+                    <td>{{i.Service_id.Service_Name}}</td>
+                    <td>{{i.User_id.Email}}</td>
+                    <td>{{i.User_id.Address}}</td>
+                    <td>{{i.Date}}</td>
+                    <td>{{i.Time}}</td>
+                    <td><a href="{% url 'delete_appoinment' id=i.id %}"><button>DECLINE</button></a></td>
+                    <td><a href="{% url 'approve' id=i.id %}"><button>APPROVED</button></a></td>
+
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+               </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

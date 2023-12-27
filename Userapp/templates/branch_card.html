@@ -1,0 +1,22 @@
+{% extends 'userindex.html' %}
+{% block contents %}
+<div class="row">
+    {% for i in data %}
+    <div class="col-mb-6">
+    <div class="container">
+    <div class="row no-gutters" style="padding-left: 200px;">
+        <div class="col-md-4 d-flex align-items-stretch">
+            <div class="offer-deal text-center px-2 px-lg-5">
+                <div class="img"><img src="{{i.Img.url}}" style="width: 250px; height: 250px;"></div>
+                <div class="text mt-4">
+                    <h3 class="mb-4" style="color: #634f54; width: 100px;height: 100px; padding-top: 50px;">{{i.Branch_Name}}</h3>
+                    <p class="icon icon-map-marker" style="width:300px;height: 100px;color: black;">  {{i.Location}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

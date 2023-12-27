@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block contents %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">Add Categories</div>
+           <hr>
+           {% for i in data %}
+            <form action="{% url 'update' id=i.id %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">Category Name</label>
+            <input type="text" value="{{i.Cat_Name}}" class="form-control" id="input-1" name="name" placeholder="Category name">
+           </div>
+           <div class="form-group">
+            <label for="input-2">Image</label>
+            <input type="file" value="{{i.Image}}" name="image" class="form-control" id="input-2" placeholder="Upload Image">
+           </div>
+           <div class="form-group">
+            <label for="input-3">Description</label>
+            <input type="text" value="{{i.Description}}" class="form-control" id="input-3" name="description" placeholder="Description">
+           </div>
+            <button type="submit" class="btn btn-light px-5"> Submit</button>
+          </div>
+          </form>
+          {% endfor %}
+         </div>
+         </div>
+      </div>
+{% endblock %}

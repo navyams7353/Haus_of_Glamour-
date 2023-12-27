@@ -1,0 +1,23 @@
+{% extends 'userindex.html' %}
+{% block contents %}
+<div class="row">
+    {% for i in data %}
+    <div class="col-lg-8">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-4 d-flex align-items-stretch">
+             <div class="offer-deal text-center px-2 px-lg-5">
+                <div><img src="{{i.Image.url}}" style="width:1500px; height:1500px; padding-right: 30px;"></div>
+                <div class="text mt-4">
+                    <h3 class="mb-4" style="font-size: 90px; padding-top: 220px; color: black;">{{i.Cat_Name}}</h3>
+                    <p class="mb-5" style="color: #360c15;font-size: 45px; width: 1500px;">{{i.Description}}</p>
+                    <p style="padding-left:700px; "><a href="{% url 'service_card' category=i.Cat_Name %}" class="btn btn-white px-4 py-3" style="font-size: 40px; width: 360px;"> Book A Treatment <span class="ion-ios-arrow-round-forward"></span></a></p>
+                </div>
+             </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

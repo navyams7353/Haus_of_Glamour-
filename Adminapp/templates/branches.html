@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block contents %}
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">Branches</div>
+           <hr>
+            <form action="{% url 'Bran' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+           <div class="form-group">
+            <label for="input-1">Branch Name</label>
+            <input type="text" class="form-control" id="input-1" name="branch" placeholder="Category name">
+           </div>
+           <div class="form-group">
+            <label for="input-2">Image</label>
+            <input type="file" name="imagess" class="form-control" id="input-2" placeholder="Upload Image">
+           </div>
+           <div class="form-group">
+            <label for="input-3">Location</label>
+            <input type="text" class="form-control" id="input-3" name="location" placeholder="Description">
+           </div>
+            <button type="submit" class="btn btn-light px-5"> Submit</button>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+{% endblock %}

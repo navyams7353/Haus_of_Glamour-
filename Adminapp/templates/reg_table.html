@@ -1,0 +1,44 @@
+
+{% extends 'index.html' %}
+{% block contents %}
+<div class="clearfix">
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+     
+      <div class="row mt-3">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Registration_database</h5>
+			  <div class="table-responsive">
+               <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Username</th>
+                      <th scope="col">Password</th>
+                      <th scope="col">Phone_Number</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                  </thead>
+                  {% for i in data %}
+                  <tbody>
+                    <tr>
+                    <td>{{i.User_Name}}</td>
+                    <td>{{i.Pass_word}}</td>
+                    <td>{{i.Phone_Number}}</td>
+                    <td>{{i.Email}}</td>
+                    <td>{{i.Address}}</td>
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+               </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
